@@ -2,7 +2,7 @@
   Generate GLAD:   python -m glad --out-path=build --api="gl=2.1" --extensions="" --generator="pascal"
   FPC build:  fpc -B -Fu../../build/glad/ -Fu../../../Pascal-SDL-2-Headers/ sdl_glad.pas
   Delphi build:  dcc64 -B -NSSystem -NSWinApi -U../../build/glad/ -U../../../Pascal-SDL-2-Headers/ sdl_glad.pas
-*)  
+*)
 
 program sdl_glad;
 {$IF Defined(FPC)}
@@ -16,12 +16,12 @@ var
   event: PSDL_Event;
   running: Boolean;
   gl_context: TSDL_GLContext;
-  
-begin  
+
+begin
 
   if SDL_Init(SDL_INIT_VIDEO) <> 0 then
   begin
-    WriteLn(Format('SDL2 video subsystem couldn''t be initialized. Error: %d', [SDL_GetError()]));
+    WriteLn(Format('SDL2 video subsystem couldn''t be initialized. Error: %s', [SDL_GetError()]));
     Halt(1);
   end;
 
@@ -30,10 +30,16 @@ begin
     SDL_WINDOWPOS_CENTERED,
     800, 600, SDL_WINDOW_SHOWN or SDL_WINDOW_OPENGL);
 
+  if not Assigned(window) then
+  begin
+    WriteLn(Format('SDL2 window couldn''t be created. Error: %s', [SDL_GetError()]));
+    Halt(1);
+  end;
+
   renderer := SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
   if not Assigned(renderer) then
   begin
-    WriteLn(Format('SDL2 Renderer couldn''t be created. Error: %d', [SDL_GetError()]));
+    WriteLn(Format('SDL2 Renderer couldn''t be created. Error: %s', [SDL_GetError()]));
     Halt(1);
   end;
 
@@ -53,7 +59,7 @@ begin
   New(event);
   (* Loop condition *)
   running := True;
-    
+
   while running = True do
   begin
 
