@@ -8,7 +8,7 @@ program sdl_glad;
 {$IF Defined(FPC)}
 {$MODE Delphi}
 {$ENDIF}
-  uses SysUtils, SDL2, glad_gl;
+uses SysUtils, SDL2, glad_gl;
 
 var
   window: PSDL_Window;
