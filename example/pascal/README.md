@@ -6,4 +6,10 @@
 
 ## GLFW & GLAD on Windows XP
 
+Gears
+
 <img src="https://github.com/JulStrat/glad/blob/master/example/pascal/glfw_gears_winxp32.png">
+
+Triangle
+
+<img src="https://github.com/JulStrat/glad/blob/master/example/pascal/glfw_triangle_winxp32.png">
