@@ -4,7 +4,7 @@
 
 <img src="https://github.com/JulStrat/glad/blob/master/example/pascal/sdl_glad_raspi.png">
 
-## GLFW & GLAD on Windows XP
+## GLFW & GLAD on Windows Vista SP1
 
 Gears
 
